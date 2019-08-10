@@ -10,6 +10,7 @@
 'use strict';
 
 // dependencies
+var endOfLine = require('os').EOL;
 
 var assert = require('assert');
 var grunt = require('grunt');
@@ -25,7 +26,7 @@ describe('grunt-replace', function() {
 
   it('should replace simple key with value',
     function(done) {
-      expect = 'value\n';
+      expect = 'value' + endOfLine;
       result = grunt.file.read('tmp/simple.txt');
       assert.equal(result, expect);
       done();
@@ -71,7 +72,7 @@ describe('grunt-replace', function() {
 
   it('should replace using built-in replacement (__SOURCE_FILE__)',
     function(done) {
-      expect = 'test/fixtures/built-in_source_file.txt\n';
+      expect = 'test/fixtures/built-in_source_file.txt'+ endOfLine;
       result = grunt.file.read('tmp/built-in_source_file.txt');
       assert.equal(result, expect);
       done();
@@ -80,7 +81,7 @@ describe('grunt-replace', function() {
 
   it('should replace using built-in replacement (__SOURCE_PATH__)',
     function(done) {
-      expect = 'test/fixtures\n';
+      expect = 'test/fixtures' + endOfLine;
       result = grunt.file.read('tmp/built-in_source_path.txt');
       assert.equal(result, expect);
       done();
@@ -89,7 +90,7 @@ describe('grunt-replace', function() {
 
   it('should replace using built-in replacement (__SOURCE_FILENAME__)',
     function(done) {
-      expect = 'built-in_source_filename.txt\n';
+      expect = 'built-in_source_filename.txt' + endOfLine;
       result = grunt.file.read('tmp/built-in_source_filename.txt');
       assert.equal(result, expect);
       done();
@@ -98,7 +99,7 @@ describe('grunt-replace', function() {
 
   it('should replace using built-in replacement (__TARGET_FILE__)',
     function(done) {
-      expect = 'tmp/built-in_target_file.txt\n';
+      expect = 'tmp/built-in_target_file.txt' + endOfLine;
       result = grunt.file.read('tmp/built-in_target_file.txt');
       assert.equal(result, expect);
       done();
@@ -107,7 +108,7 @@ describe('grunt-replace', function() {
 
   it('should replace using built-in replacement (__TARGET_PATH__)',
     function(done) {
-      expect = 'tmp\n';
+      expect = 'tmp' + endOfLine;
       result = grunt.file.read('tmp/built-in_target_path.txt');
       assert.equal(result, expect);
       done();
@@ -116,7 +117,7 @@ describe('grunt-replace', function() {
 
   it('should replace using built-in replacement (__TARGET_FILENAME__)',
     function(done) {
-      expect = 'built-in_target_filename.txt\n';
+      expect = 'built-in_target_filename.txt' + endOfLine;
       result = grunt.file.read('tmp/built-in_target_filename.txt');
       assert.equal(result, expect);
       done();
